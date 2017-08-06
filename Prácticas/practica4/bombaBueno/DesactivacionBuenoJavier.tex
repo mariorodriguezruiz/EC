@@ -1,0 +1,135 @@
+\input{preambuloSimple.tex}
+
+
+
+%----------------------------------------------------------------------------------------
+% DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	
+{\LARGE Desactivación Bomba de Javier Bueno \par}
+\vspace{5mm}
+{\large Estructura de Computadores - Grupo C3 \par}
+\vspace{3mm}
+{\large \textit{Mario Rodríguez Ruiz} \par}	
+	
+	
+%----------------------------------------------------------------------------------------
+%	Cuestión 1
+%----------------------------------------------------------------------------------------
+
+\section{Contraseña}
+
+Para averiguar la contraseña se ha utilizado el depurador \textbf{DDD} realizando los siguientes pasos:
+\\
+
+En primer lugar se ha puesto un punto de ruptura en la llamada a \textbf{fgets}, que es cuando se le pide al usuario por pantalla que ingrese una contraseña.\\
+
+Una vez funcionando el programa y detenido ahí (como se ve en la Figura \ref{fig:figura1}) se ha metido una contraseña al azar (\textbf{hola}) para avanzar.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{capturas/figura1.png} 
+	\caption{Comienzo de la depuración desde DDD} 
+	\label{fig:figura1}
+\end{figure}
+
+Una vez introducida la contraseña por consola, el programa entra
+en una función llamada \textbf{ncripTar} para modificar todos los componentes de la cadena.\\
+
+Se puede demostrar que se han cambiado todos éstos viendo el contenido del registro que contiene ahora la contraseña modificada justo después de salir de \textbf{ncripTar}.
+\\
+
+Para ello se ha utilizado la herramienta \textbf{Data}$ \rightarrow $\textbf{Memory}, volcando el contenido de \textbf{\%edx} en pantalla.\\
+
+En la Figura \ref{fig:figura2} puede verse que el valor de la cadena después del "\ encriptado "\ es \textbf{']daV' }. Esto supone que se ha realizado una \textbf{resta con valor 11} sobre cada uno de los componentes de la cadena.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{capturas/figura2.png} 
+	\caption{Contraseña introducida modificada} 
+	\label{fig:figura2}
+\end{figure}
+
+
+
+Ahora tan solo falta encontrar una supuesta contraseña con la que se compare la que se ha introducido. Lo que se hace es volcar el contenido del registro que se encuentra justo antes de la comparación de ambas, ya que es ahí donde se encuentra liberado. Este volcado se consigue mediante la misma herramienta que en el caso anterior (\textbf{Data}$ \rightarrow $\textbf{Memory}), pero cambiando el valor del registro, que será: \textbf{0x804a040}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{capturas/figura3.png} 
+	\caption{Valor de la contraseña a buscar encriptada} 
+	\label{fig:figura3}
+\end{figure}
+
+El valor que aparece en la Figura \ref{fig:figura3} (\textbf{L6C23TB4C}) se trata de la contraseña que se está buscando pero con el único inconveniente de estar cifrada (mediante la función que se vio anteriormente: \textbf{ncripTar}).
+
+Su valor original se obtiene al hacer la función inversa, es decir, sumándole 11 a cada componente de la cadena. \\
+
+Contraseña: \textbf{WAN=>\_M?N}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	
+%----------------------------------------------------------------------------------------
+
+\section{Código}
+Para averiguar la contraseña se ha utilizado el depurador \textbf{DDD} realizando los siguientes pasos:
+\\
+
+Llegando a la sección del programa que se encarga de procesar y validar el código, se ha puesto un punto de ruptura en esta parte para futuros intentos.\\
+
+En este punto el programa vuelve a solicitar datos, en este caso los correspondientes al código. El código introducido como prueba es \textbf{1111}, tal y como se ve en la Figura \ref{fig:figura4} en el estado de registros (\textbf{Status}$ \rightarrow $\textbf{Registers})
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{capturas/figura4.png} 
+	\caption{Status Registers desde DDD para el código} 
+	\label{fig:figura4}
+\end{figure}
+
+Siguiendo el trascurso del programa mediante \textbf{Nexti} y manteniendo la ventana del estado de registros abierta, se puede comprobar cómo el valor del código introducido ha sido modificado. Ahora su valor es de \textbf{1090} como presenta la Figura \ref{fig:figura5}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{capturas/figura5.png} 
+	\caption{Status Registers desde DDD para el código} 
+	\label{fig:figura5}
+\end{figure}
+
+Al parecer no se realiza ninguna modificación más sobre el código introducido por consola, porque ya se ha llegado a la comparación final de valores antes de retornar a main. Se puede deducir que lo único que se hace para cambiar el valor es la \textbf{resta de} \textbf{21} sobre éste.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{capturas/figura6.png} 
+	\caption{Status Registers desde DDD para el código} 
+	\label{fig:figura6}
+\end{figure}
+
+Dicha comparación puede visualizarse en la Figura \ref{fig:figura6}, donde se encuentran ambos valores en la ventana del estado de registros:
+
+El código introducido por consola y modificado posteriormente se encuentra en el registro \textbf{\%edx} con el valor anteriormente mencionado (\textbf{1090}) y el valor original del código con cifrado está en \textbf{\%eax} con \textbf{1900} como contenido.\\
+
+Por tanto, para terminar con el proceso lo único que hay que hacer es realizar la modificación inversa sobre \textbf{1900} (\textbf{suma de 21}).
+\\
+
+Código: \textbf{1921}
+
+
+\section{Prueba final}
+
+En la Figura \ref{fig:figura7} se presenta la prueba de desactivación de la bomba del compañero Javier Bueno López con contraseña \textbf{WAN=>\_M?N} y código \textbf{1921}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{capturas/figura7.png} 
+	\caption{Prueba de desactivación} 
+	\label{fig:figura7}
+\end{figure}
+%----------------------------------------------------------------------------------------
+%	Referencias
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
+
+\bibliography{citas} %archivo citas.bib que contiene las entradas 
+\bibliographystyle{plain} % hay varias formas de citar
+
+\end{document}

@@ -1,0 +1,101 @@
+\input{preambuloSimple.tex}
+
+
+
+%----------------------------------------------------------------------------------------
+% DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	
+{\LARGE Desactivación Bomba de María Camarero \par}
+\vspace{5mm}
+{\large Estructura de Computadores - Grupo C3 \par}
+\vspace{3mm}
+{\large \textit{Mario Rodríguez Ruiz} \par}	
+	
+	
+%----------------------------------------------------------------------------------------
+%	Cuestión 1
+%----------------------------------------------------------------------------------------
+
+\section{Contraseña}
+
+Para averiguar la contraseña se ha utilizado el depurador \textbf{DDD} realizando los siguientes pasos:
+\\
+
+En primer lugar se ha puesto un punto de ruptura en la llamada a \textbf{fgets}, que es cuando se le pide al usuario por pantalla que ingrese una contraseña.\\
+
+Una vez funcionando el programa y detenido ahí se ha metido una contraseña al azar para avanzar.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{capturas/figura1.png} 
+	\caption{Examine Memory desde DDD} 
+	\label{fig:figura1}
+\end{figure}
+
+Justo después del guardado de la contraseña introducida, se hace un \textbf{push} "sospechoso".
+Ha sido el momento de examinar los datos en memoria mediante la opción \textbf{Data} $ \rightarrow $ \textbf{Memory}:
+
+Poniendo Examine a 1, tipo \textbf{string} en \textbf{bytes} desde la dirección \textbf{0x804a03c} y haciendole un \textbf{print} ha mostrado la contraseña tal y como se ve en la Figura \ref{fig:figura1}.
+\\
+
+Contraseña: \textbf{ec2016}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	
+%----------------------------------------------------------------------------------------
+
+\section{Código}
+Para averiguar la contraseña se ha utilizado el depurador \textbf{DDD} realizando los siguientes pasos:
+\\
+
+Llegando a la sección del programa que se encarga de procesar y validar el código, se ha puesto un punto de ruptura en esta parte para futuros intentos.\\
+
+Como se ve en la Figura \ref{fig:figura2} el programa hace una llamada a una función con nombre \textbf{desactivar}, por lo que mediante \textbf{stepi} la ejecución seguirá su curso adentrándose en ésta.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{capturas/figura2.png} 
+	\caption{Examine Memory desde DDD para el código} 
+	\label{fig:figura2}
+\end{figure}
+Una vez dentro de dicha función, tal y como se muestra en la Figura \ref{fig:figura3}, se pone un punto de ruptura para futuros intentos y a continuación se examina.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{capturas/figura3.png} 
+	\caption{Examine Memory desde DDD para el código} 
+	\label{fig:figura3}
+\end{figure}
+
+Mediante la ayuda del estado de los registros (\textbf{Status}$ \rightarrow $\textbf{Registers}) y avanzando una a una cada instrucción se puede ver cómo van modificando sus valores.
+\newpage
+
+
+
+El código de prueba introducido ha sido \textbf{1111}, sin embargo $ " $extrañamente$ " $ se ha visto cómo se ha modificado su valor convirtiéndose ahora en \textbf{-905}, como puede verse en la Figura \ref{fig:figura4}.
+
+Es ahora cuando se hace una comparación de este nuevo valor con el valor que contiene \textbf{\%eax} que es cero.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{capturas/figura4.png} 
+	\caption{Examine Memory desde DDD para el código} 
+	\label{fig:figura4}
+\end{figure}
+Aquí es cuando se aprecia que se ha realizado una resta sobre el valor introducido y que su resultado tiene que ser cero. Por lo que sumando el valor introducido como prueba (1111) y el resultado después de la modificación (905) aparece la solución al problema: 1111+905=2016
+\\
+
+Por tanto, el código es \textbf{2016}.
+
+%----------------------------------------------------------------------------------------
+%	Referencias
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
+
+\bibliography{citas} %archivo citas.bib que contiene las entradas 
+\bibliographystyle{plain} % hay varias formas de citar
+
+\end{document}

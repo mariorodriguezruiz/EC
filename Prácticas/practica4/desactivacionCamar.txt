@@ -1,0 +1,5 @@
+contraseña:
+he visto en la comparacion el string        ec2016
+
+codigo:
+he visto una comparacion con 16             2016

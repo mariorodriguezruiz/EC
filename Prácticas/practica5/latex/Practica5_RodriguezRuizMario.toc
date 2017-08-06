@@ -1,0 +1,4 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Procesador de las pruebas}{3}{section.1}
+\contentsline {section}{\numberline {2}Tama\IeC {\~n}o de linea}{5}{section.2}
+\contentsline {section}{\numberline {3}Tama\IeC {\~n}o de cach\IeC {\'e}}{7}{section.3}

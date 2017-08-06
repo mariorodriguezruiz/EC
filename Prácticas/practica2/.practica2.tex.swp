@@ -1,0 +1,44 @@
+\input{preambuloSimple.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{	
+\normalfont \normalsize 
+\textsc{\textbf{Estructura de Computadores (2016-2017)} \\ Subgrupo C3 \\ Grado en Ingeniería Informática\\ Universidad de Granada} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Práctica 2: Programación en ensamblador x86 Linux \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Mario Rodríguez Ruiz} % Nombre y apellidos
+
+\date{\normalsize\today} % Incluye la fecha actual
+
+%----------------------------------------------------------------------------------------
+% DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Muestra el Título
+
+\newpage %inserta un salto de página
+
+\tableofcontents % para generar el índice de contenidos
+
+\listoffigures
+
+\listoftables
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	Ejercicio 5.1
+%----------------------------------------------------------------------------------------
+
+\section{Ejercicio 5.1: Suma sin signo en 32 bits}
+
+
+\end{document}

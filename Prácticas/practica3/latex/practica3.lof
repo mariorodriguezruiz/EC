@@ -1,0 +1,17 @@
+\select@language {spanish}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ejecuci\IeC {\'o}n del programa \textbf {popcount} con \textbf {-O0}}}{11}{figure.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ejecuci\IeC {\'o}n del programa \textbf {popcount} con \textbf {-O1}}}{11}{figure.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Ejecuci\IeC {\'o}n del programa \textbf {popcount} con \textbf {-O2}}}{11}{figure.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Resultado de las ejecuciones de \textbf {popcount}}}{12}{figure.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Resumen de los promedios}}{12}{figure.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Gr\IeC {\'a}ficas de las ejecuciones de \textbf {popcount}}}{12}{figure.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Completa}}}{12}{figure.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Reducida para apreciar el factor mejora}}}{12}{figure.6}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Ejecuci\IeC {\'o}n del programa \textbf {parity} con \textbf {-O0}}}{17}{figure.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Ejecuci\IeC {\'o}n del programa \textbf {parity} con \textbf {-O1}}}{17}{figure.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Ejecuci\IeC {\'o}n del programa \textbf {parity} con \textbf {-O2}}}{17}{figure.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Resultado de las ejecuciones de \textbf {parity}}}{18}{figure.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Resumen de los promedios}}{18}{figure.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Gr\IeC {\'a}ficas de las ejecuciones de \textbf {parity}}}{18}{figure.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Completa}}}{18}{figure.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Reducida para apreciar el factor mejora}}}{18}{figure.6}

@@ -1,0 +1,11 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Diario de trabajo}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Primera sesi\IeC {\'o}n}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Segunda sesi\IeC {\'o}n}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Tercera sesi\IeC {\'o}n}{3}{subsection.1.3}
+\contentsline {section}{\numberline {2}Ejercicio 5.1: Suma SIN signo en 32 bits}{3}{section.2}
+\contentsline {section}{\numberline {3}Ejercicio 5.2: Suma CON signo en 32 bits}{6}{section.3}
+\contentsline {section}{\numberline {4}Ejercicio 5.3: Media CON signo en 32 bits}{9}{section.4}
+\contentsline {section}{\numberline {5}Preguntas de Auto-comprobaci\IeC {\'o}n}{12}{section.5}
+\contentsline {subsection}{\numberline {5.1}Sesi\IeC {\'o}n de depuraci\IeC {\'o}n saludo.s}{12}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Sesi\IeC {\'o}n de depuraci\IeC {\'o}n suma.s}{14}{subsection.5.2}

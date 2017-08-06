@@ -1,0 +1,6 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Programar la bomba digital}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Fichero fuente}{3}{subsection.1.1}
+\contentsline {section}{\numberline {2}Desactivaci\IeC {\'o}n de la bomba}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Contrase\IeC {\~n}a}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}C\IeC {\'o}digo}{7}{subsection.2.2}
